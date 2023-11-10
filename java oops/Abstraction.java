@@ -4,7 +4,7 @@ package lokesh;
  *abstract methods have no method body
  *if we declare any method as abstract then that class must be declared as abstract
  *we cannot create object for abstract classes
- *abstract classes can have zero or more abstract methods which are not allowed in non abstract methods
+ *abstract classes can have zero or more abstract methods which are not allowed in non abstract classes
  *the child class which inherits the abstract class must implement abstract methods
  *abstract methods can be implement for each child classes 
  */
