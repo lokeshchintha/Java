@@ -9,32 +9,83 @@ package lokesh;
  *abstract methods can be implement for each child classes 
  */
 
-abstract class Parts{
-	abstract void function();
-	void fun1() {
-		System.out.println("fun1");// abstract classes can hav non abstarct methods
-	}
-	
-	abstract void fun();
+abstract class Shape {
+    int x;
+    int y;
+
+    abstract double calculateArea();
+
+    void display() {    // abstract classes can hav non abstarct methods
+
+        System.out.println("This is a shape.");
+        
+    }
 }
 
-class Brakes extends Parts{
-	void function() {
-		System.out.println("function");
-	}
-	void fun() {
-		System.out.println("fun");
-	}
+
+class Circle extends Shape {
+    double radius;
+
+    Circle(int x, int y, double radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    void displayCircleInfo() {
+        System.out.println("Circle - Radius: " + radius);
+    }
 }
 
-public class Abstraction {
-//	Parts p = new Parts();//error cannot create object
-	public static void main(String args[]) {
-		Brakes b = new Brakes();
-		b.fun();// fun
-		b.fun1();// fun1
-		b.function();// function
-	}
-	
-	
+class Rectangle extends Shape {
+    double length;
+    double width;
+
+    Rectangle(int x, int y, double length, double width) {
+        this.x = x;
+        this.y = y;
+        this.length = length;
+        this.width = width;
+    }
+
+    double calculateArea() {
+        return length * width;
+    }
+
+    void displayRectangleInfo() {
+        System.out.println("Rectangle - Length: " + length + ", Width: " + width);
+    }
+}
+
+class lokesh {
+    public static void main(String[] args) {
+
+        //	Shape object = new Shape(); //error cannot create object
+        
+
+        Circle circle = new Circle(1, 2, 5.0);
+        Rectangle rectangle = new Rectangle(3, 4, 6.0, 8.0);
+
+
+        Shape shape1 = circle;
+        Shape shape2 = rectangle;
+
+
+        shape1.display();
+        shape2.display();
+
+
+        System.out.println("Area of Circle: " + shape1.calculateArea());
+        System.out.println("Area of Rectangle: " + shape2.calculateArea());
+
+
+        ((Circle) shape1).displayCircleInfo();
+        ((Rectangle) shape2).displayRectangleInfo();
+
+
+    }
 }
