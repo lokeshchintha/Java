@@ -71,3 +71,38 @@ class B extends Thread{
         }
     }
 }
+
+// Runnable Interface
+class Testing{
+    public static void main(String[] args) {
+        A obj1 = new A(); // Runnable object we can alse declare as
+        B obj2 = new B(); // Runnable obj2 = new B();
+
+        Thread t1 = new Thread(obj1); // converts a runnable object to thread
+        Thread t2 = new Thread(obj2);
+
+        t1.start(); // both run 
+        t2.start(); // simultaneously
+
+    }
+}
+
+class A implements Runnable{
+    @Override
+    public void run(){
+        for(int i=0;i<100;i++){
+            System.out.println("Hi");
+            
+        }
+    }
+}
+
+class B implements Runnable{
+    @Override
+    public void run(){
+        for(int i=0;i<100;i++){
+            System.out.println("Hello");
+        }
+    }
+}
+
